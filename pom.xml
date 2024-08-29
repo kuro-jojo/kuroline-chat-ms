@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.kuro</groupId>
 	<artifactId>kuroline-chat-ms</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>kuroline-chat-ms</name>
-	<description>Chat application : chat microservic</description>
+	<description>Chat application : chat microservice</description>
 	<url/>
 	<licenses>
 		<license/>

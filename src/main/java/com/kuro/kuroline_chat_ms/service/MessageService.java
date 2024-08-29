@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class MessageService implements MessageRepository {
@@ -21,11 +22,11 @@ public class MessageService implements MessageRepository {
     }
 
     @Override
-    public Message add(Message message) {
-        message.setSendAt(new Date());
+    public void save(Message message) {
+        message.setSentAt(new Date());
         message.setMessageStatus(MessageStatus.SENT);
+        message.setId(UUID.randomUUID().toString());
 
-        return message;
     }
 
     @Override

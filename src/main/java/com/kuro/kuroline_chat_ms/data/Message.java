@@ -15,7 +15,8 @@ public class Message {
     private String receiverId;
     private String groupId;
     private String content;
-    private Date sendAt;
+    private String discussionId;
+    private Date sentAt;
     private MessageStatus messageStatus;
     private MessageType messageType;
 }

@@ -15,7 +15,11 @@ public class Discussion {
     private String contactId; // the contact with whom the user is having a discussion;
     private List<Message> messages;
     private String lastMessageId;
-    private Date lastMessageSendAt;
+    private Date lastMessageSentAt;
     private String lastMessageSentBy; // the user who sent the last message
     private List<Attachment> attachments;
+
+    public Discussion(String discussionId) {
+        this.id = discussionId;
+    }
 }

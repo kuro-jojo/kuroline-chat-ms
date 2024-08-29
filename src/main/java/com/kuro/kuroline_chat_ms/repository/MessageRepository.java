@@ -7,7 +7,7 @@ import java.util.List;
 public interface MessageRepository {
     Message findById(String messageId);
     List<Message> findByDiscussionIdOrderByTimestampAsc(String discussionId);
-    Message add(Message message);
+    void save(Message message);
     void update(Message message);
     void delete(Message message);
 
