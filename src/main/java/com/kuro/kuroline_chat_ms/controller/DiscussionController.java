@@ -39,7 +39,17 @@ public class DiscussionController {
         if (!isValidDiscussion(discussion)) {
             return new ResponseEntity<>(new ResponseMessage("Please provide the contact id"), HttpStatus.BAD_REQUEST);
         }
-
+        try {
+            Discussion d = findDiscussionByContactId(user.getId(), discussion.getContactId());
+            if (d == null) {
+                d = findDiscussionByContactId(discussion.getContactId(), user.getId());
+            }
+            if (d != null){
+                return new ResponseEntity<>(new ResponseMessage("Discussion already started"), HttpStatus.CONFLICT);
+            }
+        } catch (ExecutionException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         setDefaultValues(discussion, user);
 
         try {
