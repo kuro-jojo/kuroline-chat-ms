@@ -44,7 +44,7 @@ public class ChatController {
     @SendTo("/topic/message")
     public Message sendMessage(@Payload Message chatMessage, Principal principal) {
         User user = getAuthenticatedUser(principal);
-
+        chatMessage.setSenderId(user.getId());
         validateMessage(chatMessage, user);
 
         log.info("User {} sent message to user {}", user.getId(), chatMessage.getReceiverId());
