@@ -1,5 +1,7 @@
 package com.kuro.kuroline_chat_ms.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.cloud.firestore.annotation.Exclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,5 +23,11 @@ public class Discussion {
 
     public Discussion(String discussionId) {
         this.id = discussionId;
+    }
+
+    @JsonIgnore
+    @Exclude
+    public String[] getParticipants(){
+        return new String[]{ownerId, contactId};
     }
 }
