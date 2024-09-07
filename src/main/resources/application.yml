@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: kuroline-chat-ms
+  servlet:
+    multipart:
+      max-file-size: 3MB
+server:
+  port: 8092
+# spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration

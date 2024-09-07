@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 @Slf4j
 @RestController
-@RequestMapping(path = "/api/v1/discussions")
+@RequestMapping(path = "/api/v1/chat/discussions")
 public class DiscussionController {
 
     private final DiscussionService discussionService;

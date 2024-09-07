@@ -31,8 +31,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
      */
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws")
-                .setAllowedOrigins("http://localhost:4200"); // TODO: restrict the domains
+        registry.addEndpoint("/ws/v1/chat")
+                .setAllowedOrigins("http://localhost:4200"); // TODO: change the domain
     }
 
     @Override
