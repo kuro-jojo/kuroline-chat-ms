@@ -186,8 +186,8 @@ public class DiscussionService implements DiscussionRepository {
      * @throws ExecutionException   If an error occurs during execution.
      * @throws InterruptedException If the operation is interrupted.
      */
-    private List<Discussion> findAllBy(String field, String value) throws ExecutionException, InterruptedException {
-        ApiFuture<QuerySnapshot> future = collection.whereEqualTo(field, value).get();
-        return future.get().toObjects(Discussion.class);
-    }
+    // private List<Discussion> findAllBy(String field, String value) throws ExecutionException, InterruptedException {
+    //     ApiFuture<QuerySnapshot> future = collection.whereEqualTo(field, value).get();
+    //     return future.get().toObjects(Discussion.class);
+    // }
 }
