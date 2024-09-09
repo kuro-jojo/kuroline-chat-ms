@@ -5,6 +5,9 @@ WORKDIR /app
 # Copy the pom.xml and the project files to the container
 COPY pom.xml .
 COPY src ./src
+# Accept the FIREBASE_SERVICE_ACCOUNT as a build argument
+RUN --mount=type=secret,id=service_account cat /run/secrets/service_account >  src/main/resources/serviceAccount.json
+RUN cat src/main/resources/serviceAccount.json | base64 -d  > src/main/resources/serviceAccount.json
 # Build the application using Maven
 RUN mvn clean package -DskipTests
 

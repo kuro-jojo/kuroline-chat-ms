@@ -10,7 +10,6 @@ jobs:
     defaults:
       run:
         shell: bash
-
     steps:
       - uses: actions/checkout@v4
 
@@ -22,10 +21,20 @@ jobs:
 
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+          password:
+            ${{ secrets.DOCKER_TOKEN }}
+
+            # Step to create the serviceAccount.json file from GitHub Secret
+      - name: Create Firebase service account JSON file
+        run: |
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" > serviceAccount.json
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/kuroline-chat-ms:latest
+          secret-files: |
+            "service_account=serviceAccount.json"
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          cache-from: type=local,src=/tmp/.buildx-cache
